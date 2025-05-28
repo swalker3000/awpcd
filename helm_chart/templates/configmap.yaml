@@ -5,4 +5,4 @@ metadata:
   namespace: argo
 data:
   input: file.txt
-  mode: fast
+  mode: slow
