@@ -1,7 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: python-app-workflow
   generateName: python-app-workflow-
   namespace: argo
 spec:
@@ -9,6 +8,6 @@ spec:
   templates:
     - name: run-python-app
       container:
-        image: myregistry/python-app:latest
+        image: python:3.11-slim
         command: ["python3"]
-        args: ["main.py", "--input", "file.txt", "--mode", "fast"]
+        args: ["-c", "print('Hello from Argo! Args:', '--input=file.txt', '--mode=fast')"]
