@@ -14,4 +14,4 @@ spec:
       group: ""
       version: "v1"
       resource: "configmaps"
-      namespace: sean
+      namespace: argo
