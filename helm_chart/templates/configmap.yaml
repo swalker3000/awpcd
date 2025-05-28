@@ -7,4 +7,4 @@ metadata:
     workflows.argoproj.io/configmap-type: Parameter
 data:
   input: file.txt
-  mode: med8
+  mode: med9
