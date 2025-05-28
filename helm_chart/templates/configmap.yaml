@@ -5,4 +5,4 @@ metadata:
   namespace: sean
 data:
   input: file.txt
-  mode: med
+  mode: med2
