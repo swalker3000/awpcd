@@ -1,13 +1,33 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  name: python-app-workflow
+  generateName: python-app-workflow-
   namespace: argo
 spec:
-  entrypoint: run-python-app
+  entrypoint: run
+  arguments:
+    parameters:
+      - name: input
+        valueFrom:
+          configMapKeyRef:
+            name: python-app-config
+            key: input
+      - name: mode
+        valueFrom:
+          configMapKeyRef:
+            name: python-app-config
+            key: mode
   templates:
-    - name: run-python-app
+    - name: run
+      inputs:
+        parameters:
+          - name: input
+          - name: mode
       container:
         image: python:3.11-slim
         command: ["python3"]
-        args: ["-c", "print('Hello from Argo! Args:', '--input=file.txt', '--mode=fast')"]
+        args:
+          - -c
+          - |
+            print("Input: {{inputs.parameters.input}}")
+            print("Mode: {{inputs.parameters.mode}}")
