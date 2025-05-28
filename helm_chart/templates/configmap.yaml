@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: python-app-config
   namespace: argo
+  labels:
+    workflows.argoproj.io/configmap-type: Parameter
 data:
   input: file.txt
-  mode: med5
+  mode: med6
