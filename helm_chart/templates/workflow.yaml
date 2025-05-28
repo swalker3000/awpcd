@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: python-app-workflow
+  generateName: python-app-workflow-
+spec:
+  entrypoint: run-python-app
+  templates:
+    - name: run-python-app
+      container:
+        image: myregistry/python-app:latest
+        command: ["python3"]
+        args: ["main.py", "--input", "file.txt", "--mode", "fast"]
