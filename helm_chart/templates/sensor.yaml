@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: configmap-trigger-sensor
-  namespace: argo-events
+  namespace: sean
 spec:
   template:
     serviceAccountName: argo-events-sa
@@ -24,7 +24,7 @@ spec:
               kind: Workflow
               metadata:
                 generateName: python-app-workflow-
-                namespace: argo
+                namespace: sean
               spec:
                 entrypoint: run
                 arguments:

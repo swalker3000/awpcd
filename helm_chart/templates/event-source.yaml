@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: EventSource
 metadata:
   name: configmap-watcher
-  namespace: argo-events
+  namespace: sean
 spec:
   template:
     serviceAccountName: argo-events-sa
@@ -14,4 +14,4 @@ spec:
       group: ""
       version: "v1"
       resource: "configmaps"
-      namespace: argo
+      namespace: sean
